@@ -16,8 +16,8 @@
 Route::get('/', function () {
    //return view('welcome');
 	echo "<H1>Cello Resources for You!</H1>";
-	$min2_url = url('min2');
-	echo "<a href=\"".$min2_url."\">Minuet #2</a><br />";
+	$fingerMotion_url = url('fingerMotionBowIntro');
+	echo "<a href=\"".$fingerMotion_url."\">Finger Motion on the Bow - An Introduction</a><br />";
 	$gMaj_2Oct_url = url('gMajor2Octaves');
 	echo "<a href=\"".$gMaj_2Oct_url."\">G Major Scale - 2 Octaves</a><br /><br /><br />";
 	//$witches_url = url('test3');
@@ -42,15 +42,14 @@ Route::get('test2', function() {
 	return $s3;
 });
 
-Route::get('min2', function() {
+Route::get('fingerMotionBowIntro', function() {
 	
 	//require  'Aws\S3\Exception\S3Exception';
 	//use 'Aws\S3\Exception\S3Exception';
 
 	$bucket = 'debethunestudio';
-	$keyname = 'min2_480.mov';
 	//$keyname = 'G-Major.mp4';
-	//$keyname = 'Finger-Motion-Bow-Intro.mp4';
+	$keyname = 'Finger-Motion-Bow-Intro.mp4';
 	//$keyname = 'test-image.jpg';
 	$filepath = 'c:\Users\Ellie\Desktop';
 	$timeout = 10000;
