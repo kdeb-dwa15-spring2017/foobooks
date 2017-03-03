@@ -1,6 +1,7 @@
 <?php
 
 //require 'vendor/autoload.php';
+require('../app/Video.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,7 @@ Route::get('fingerMotionBowIntro', function() {
 	//$keyname = 'G-Major.mp4';
 	$keyname = 'Finger-Motion-Bow-Intro.mp4';
 	//$keyname = 'test-image.jpg';
-	$filepath = 'c:\Users\Ellie\Desktop';
+	$filepath = 'c:\xampp';
 	$timeout = 10000;
 
 	$sharedConfig = [
@@ -87,6 +88,8 @@ Route::get('fingerMotionBowIntro', function() {
 	    'Key'    => $keyname,
 	));
 
+	$testHTML = "<H1>This is a test</H1><br /><br />";
+
 	/* foreach($result as $ind_result) {
 		echo($ind_result.'\n');
 	} */
@@ -96,14 +99,16 @@ Route::get('fingerMotionBowIntro', function() {
 	//echo "<img src=".$result['@metadata']['effectiveUri'].">";
 
 	header("Content-Type: {$result['ContentType']}");
+	//body($testHTML);
     echo $result['Body'];
+
 	/*
 	foreach($result as $test) {
 		echo($test);
 		echo("\n");
 	}
 	*/
-	dump($result);
+	//dump($result);
 	
 
 	// Get a range of bytes from an object.
@@ -122,8 +127,8 @@ Route::get('fingerMotionBowIntro', function() {
 	    'Bucket' => $bucket,
 	    'Key'    => $keyname,
 	    'SaveAs' => $filepath
-	));
-	*/
+	)); */
+
 	
 	/*
 	try {
@@ -177,5 +182,42 @@ Route::get('gMajor2Octaves', function() {
 
 	header("Content-Type: {$result['ContentType']}");
     echo $result['Body'];
+
+});
+
+Route::get('gMajor2Octaves-2', function() {
+	
+	//require  'Aws\S3\Exception\S3Exception';
+	//use 'Aws\S3\Exception\S3Exception';
+	$video = new Video('G-Major.mp4');
+	/*
+	$bucket = 'debethunestudio';
+	$keyname = 'G-Major.mp4';
+	$filepath = 'c:\Users\Ellie\Desktop';
+	$timeout = 10000;
+
+	$sharedConfig = [
+	    'region'  => 'us-west-2',
+	    'version' => 'latest'
+	];
+
+	// Create an SDK class used to share configuration across clients.
+	$sdk = new Aws\Sdk($sharedConfig);
+
+
+	// Use an Aws\Sdk class to create the S3Client object.
+	$s3Client = $sdk->createS3();
+	
+	
+	// Get an object.
+	
+	$result = $s3Client->getObject(array(
+	    'Bucket' => $bucket,
+	    'Key'    => $keyname,
+	));
+	*/
+	dump($result);
+	//header("Content-Type: {$result['ContentType']}");
+    //echo $result['Body'];
 
 });
