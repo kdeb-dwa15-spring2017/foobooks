@@ -3,8 +3,6 @@ class Video {
 
 	#Properties
 	
-	
-
 	#Methods
 	function __construct($keyname) {
 		$bucket = 'debethunestudio';
@@ -22,6 +20,5 @@ class Video {
 		header("Content-Type: {$result['ContentType']}");
     	echo $result['Body'];
 	}
-
 
 }
