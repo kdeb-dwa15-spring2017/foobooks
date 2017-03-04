@@ -1,4 +1,5 @@
-<?php
+<?php namespace App\Library;
+
 class Video {
 
 	#Properties

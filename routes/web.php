@@ -1,7 +1,9 @@
 <?php
 
 //require 'vendor/autoload.php';
-require('../app/Video.php');
+//use App;
+use App\Library\Video;
+//require('../app/Video.php');
 
 /*
 |--------------------------------------------------------------------------
