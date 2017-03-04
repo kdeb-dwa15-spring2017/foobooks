@@ -1,4 +1,8 @@
-<?php namespace App\Library;
+<?php 
+namespace App\Library;
+
+//use Aws\S3\S3Client;
+require '../vendor/autoload.php';
 
 class Video {
 
@@ -11,7 +15,7 @@ class Video {
 		    'region'  => 'us-west-2',
 		    'version' => 'latest'
 		];
-		$sdk = new Aws\Sdk($sharedConfig);
+		$sdk = new \Aws\Sdk($sharedConfig);
 		$s3Client = $sdk->createS3();
 		$this->$keyname = $keyname;
 		$result = $s3Client->getObject(array(
