@@ -17,8 +17,7 @@
     },
     "autoload": {
         "classmap": [
-            "database",
-            "vendor/AWS/Sdk"
+            "database"
         ],
         "psr-4": {
             "App\\": "app/"
