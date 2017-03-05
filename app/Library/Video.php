@@ -4,6 +4,9 @@ namespace App\Library;
 //use Aws\S3\S3Client;
 require '../vendor/autoload.php';
 
+//http://docs.aws.amazon.com/aws-sdk-php/v3/guide/getting-started/basic-usage.html
+//http://docs.aws.amazon.com/AmazonS3/latest/dev/RetrieveObjSingleOpPHP.html
+
 class Video {
 
 	#Properties

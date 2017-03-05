@@ -3,6 +3,7 @@
 //require 'vendor/autoload.php';
 //use App;
 use App\Library\Video;
+use App\Library\BucketList;
 //require('../app/Video.php');
 
 /*
@@ -45,13 +46,25 @@ Route::get('test2', function() {
 	return $s3;
 });
 
+/*
 Route::get('fingerMotionBowIntro', function() {
 	$video = new Video('Finger-Motion-Bow-Intro.mp4');
 
 });
+*/
 
+Route::get('/fingerMotionBowIntro', 'VideoController@fingerMotionBowIntro');
+
+/*
 Route::get('gMajor2Octaves', function() {
 	$video = new Video('G-Major.mp4');
+
+}); */
+
+Route::get('gMajor2Octaves', 'VideoController@gMajor2Octaves');
+
+Route::get('bucketIndex', function() {
+	$bucketIndex = new BucketList();
 
 });
 
