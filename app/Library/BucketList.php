@@ -9,7 +9,6 @@ require '../vendor/autoload.php';
 class BucketList {
 
 	#Properties
-	
 	#Methods
 	function __construct() {
 		$bucket = 'debethunestudio';
@@ -20,13 +19,17 @@ class BucketList {
 		$sdk = new \Aws\Sdk($sharedConfig);
 		$s3Client = $sdk->createS3();
 		$result = $s3Client->listObjects(array('Bucket' => $bucket));
-		echo "Keys retrieved!<br /><br />";
+		//echo "Keys retrieved!<br /><br />";
+		$keyArray = [];
 		foreach ($result['Contents'] as $object) {
 			if (!strstr($object['Key'],"logs/")) {
-				echo $object['Key'] . "<br />";
+				//echo $object['Key'] . "<br />";
+				array_push($keyArray, $object['Key']);
 			}
 			
 		}
+		//dump($keyArray);
+		return $keyArray;
 	}
 
 }

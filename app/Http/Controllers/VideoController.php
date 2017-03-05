@@ -19,4 +19,10 @@ class VideoController extends Controller
     	$video = new Video('G-Major.mp4');
     	return $video;
     }
+
+    public function getVideo($key) {
+    	$this->$key = $key;
+    	$video = new Video($key);
+    	return $video;
+    }
 }
