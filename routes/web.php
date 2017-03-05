@@ -20,9 +20,9 @@ use App\Library\BucketList;
 Route::get('/', function () {
    //return view('welcome');
 	echo "<H1>Cello Resources for You!</H1>";
-	$fingerMotion_url = url('fingerMotionBowIntro');
+	$fingerMotion_url = url('fingerMotionBowIntro.mp4');
 	echo "<a href=\"".$fingerMotion_url."\">Finger Motion on the Bow - An Introduction</a><br />";
-	$gMaj_2Oct_url = url('gMajor2Octaves');
+	$gMaj_2Oct_url = url('gMajor2Octaves.mp4');
 	echo "<a href=\"".$gMaj_2Oct_url."\">G Major Scale - 2 Octaves</a><br /><br /><br />";
 	//$witches_url = url('test3');
 	//echo "<a href=\"".$witches_url."\">Witch's Dance </a><br />";
@@ -30,38 +30,10 @@ Route::get('/', function () {
 	//echo "<a href=\"".$hunters_url."\">Hunter's Chorus</a><br />";
 });
 
-Route::get('test1', function() {
-	return("in the test route");
-});
 
+Route::get('/fingerMotionBowIntro.mp4', 'VideoController@fingerMotionBowIntro');
 
-Route::get('test2', function() {
-	
-
-	$s3 = new Aws\S3\S3Client([
-	    'version' => 'latest',
-	    'region'  => 'us-west-2'
-	]);
-
-	return $s3;
-});
-
-/*
-Route::get('fingerMotionBowIntro', function() {
-	$video = new Video('Finger-Motion-Bow-Intro.mp4');
-
-});
-*/
-
-Route::get('/fingerMotionBowIntro', 'VideoController@fingerMotionBowIntro');
-
-/*
-Route::get('gMajor2Octaves', function() {
-	$video = new Video('G-Major.mp4');
-
-}); */
-
-Route::get('gMajor2Octaves', 'VideoController@gMajor2Octaves');
+Route::get('gMajor2Octaves.mp4', 'VideoController@gMajor2Octaves');
 
 Route::get('bucketIndex', function() {
 	$bucketIndex = new BucketList();
