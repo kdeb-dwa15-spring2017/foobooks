@@ -10,8 +10,9 @@ use App\Library\Video;
 class VideoController extends Controller
 {
     //
+    /*
     public function fingerMotionBowIntro() {
-    	$video = new Video('Finger-Motion-Bow-Intro.mp4');
+    	$video = new Video('fingerMotionBowIntro.mp4');
     	return $video;
     }
 
@@ -19,9 +20,10 @@ class VideoController extends Controller
     	$video = new Video('G-Major.mp4');
     	return $video;
     }
+    */
 
     public function getVideo($key) {
-    	$this->$key = $key;
+    	$this->key = $key;
     	$video = new Video($key);
     	return $video;
     }
