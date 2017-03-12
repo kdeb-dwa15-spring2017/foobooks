@@ -84,6 +84,7 @@
                 <H1>Cello Resources for You!</H1>
                 @foreach($keyArray as $key) 
                      <p>This is user {{$key}}</p>
+                     <a href="/{{ $key }}">{{ $key }}</a>
                 @endforeach
                 {{-- 
                 @foreach ($users as $user)

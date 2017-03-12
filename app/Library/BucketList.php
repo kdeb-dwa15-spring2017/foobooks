@@ -42,7 +42,7 @@ class BucketList {
 		 //['models' => $models]
 	}
 	*/
-
+	//http://php.net/manual/en/migration70.new-features.php
 	function makeList(): array {
 		$bucket = 'debethunestudio';
 		$sharedConfig = [
