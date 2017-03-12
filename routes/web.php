@@ -6,6 +6,7 @@ use App\Library\Video;
 use App\Library\BucketList;
 //require('../app/Video.php');
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +17,17 @@ use App\Library\BucketList;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
+
+	return view('welcome');
+});
+
+
+Route::get('/video_test', 'IndexController@getIndex');
+//Route::get('/video_test', 'IndexController@getIndex')->name('index');
+
+
+Route::get('/video', function () {
    		$bucket = 'debethunestudio';
 		$sharedConfig = [
 		    'region'  => 'us-west-2',
@@ -39,22 +49,32 @@ Route::get('/', function () {
 		//$keyArray = new BucketList();
 		//dd($keyArray);
 
+		echo "<H1>Cello Resources for You!</H1>";
 		foreach($keyArray as $key) {
 			echo "<a href=\"".$key."\">".$key."</a><br />";
 		}
-	
-
-	//echo "<H1>Cello Resources for You!</H1>";
-	//$fingerMotion_url = url('fingerMotionBowIntro.mp4');
-	//echo "<a href=\"".$fingerMotion_url."\">Finger Motion on the Bow - An Introduction</a><br />";
-	//$gMaj_2Oct_url = url('gMajor2Octaves.mp4');
-	//echo "<a href=\"".$gMaj_2Oct_url."\">G Major Scale - 2 Octaves</a><br /><br /><br />";
-
 });
 
-//Route::get('/video', 'VideoController@index')->name('video.index');
 
-//Route::get('/test/{squirrel}', ['uses' =>'SomeController@doSomething']);
+Route::get('test', function () {
+		//dump($bl);
+		//$a = [];
+		$a = new BucketList;
+		echo gettype($a);
+		//$a_array = array($a);
+		//echo gettype($a_array);
+		//dump($a_array);
+		
+
+		
+		/*
+		foreach($a_array as $b) {
+			echo $b;
+		}*/
+
+		//dd($a);
+});
+
 
 
 		
@@ -80,12 +100,8 @@ Route::get('/', function () {
 		//dd($keyArray);
 
 		foreach($keyArray as $key) {
-		//echo $key;
-		//$currentURL = $key."_url";
-		//echo "<a href=\"".$currentURL."\">".$key."</a><br />";
-		//Route::get($key, 'VideoController@getVideo($key)');
-		//Route::get('/video/{'.$key.'}', 'VideoController@getVideo'->name($key));
-		Route::get('/{key}', 'VideoController@getVideo');
+			Route::get('/{key}', 'VideoController@getVideo');
+		}
 
 		/*
 		Route::get('/video/{key}', function($key) 
@@ -93,26 +109,9 @@ Route::get('/', function () {
         	return 'Key is ' . $key;
     	});
     	*/
-		}
-
-
-//for($i = 0; $i < 100; $i++) {
-//    Route::get('/practice/'.$i, 'PracticeController@example'.$i)->name('practice.example'.$i);
-//}
 
 
 
 
-//Route::get('/fingerMotionBowIntro.mp4', 'VideoController@fingerMotionBowIntro');
 
-//Route::get('gMajor2Octaves.mp4', 'VideoController@gMajor2Octaves');
-
-//A route that accepts a variable from the bucketlist array in the route name and in the controller
-
-/*
-Route::get('bucketIndex', function() {
-	$bucketIndex = new BucketList();
-
-});
-*/
 
