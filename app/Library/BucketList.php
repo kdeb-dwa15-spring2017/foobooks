@@ -68,7 +68,7 @@ class BucketList {
 		//	echo $a.'<br />';
 		//}
 		//return $keyArray;
-		dump($keyArray);
+		//dump($keyArray);
 		//return (['keyArray' => $keyArray]);
 		return($keyArray);
 		 //['models' => $models]

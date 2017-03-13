@@ -79,19 +79,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                   Cello Resources
                 </div>
-                <H1>Cello Resources for You!</H1>
+                <h3>Some test videos - click on an mp4 file</h3>
+                <div class="links">
                 @foreach($keyArray as $key) 
-                     <p>This is user {{$key}}</p>
                      <a href="{{ $key }}">{{ $key }}</a>
                 @endforeach
+                </div>
+                
+             
                 {{-- 
-                @foreach ($users as $user)
-                    <p>This is user {{ $user->id }}</p>
-                @endforeach
-                --}}
-
                 <div class="links">
                     <a href="{{ url('/gMajor.mp4') }}">G Major - Two Octaves</a>
                     <a href="https://laravel.com/docs">Documentation</a>
@@ -100,6 +98,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                --}}
             </div>
         </div>
     </body>
