@@ -28,7 +28,7 @@ Route::get('/', 'IndexController@getIndex');
 
 //Route::get('/video_test', 'IndexController@getIndex')->name('index');
 
-Route::get('{key}', 'VideoController@getVideo');
+Route::get('/{key}', 'VideoController@getVideo');
 
 		
 
