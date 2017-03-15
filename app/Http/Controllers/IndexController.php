@@ -16,6 +16,6 @@ class IndexController extends Controller
 		//echo gettype($keyArray);
 		//dump($bl);
     	//dump($keyArray);
-    	return view('welcome')->with('keyArray', $keyArray);
+    	return view('home')->with('keyArray', $keyArray);
     }
 }

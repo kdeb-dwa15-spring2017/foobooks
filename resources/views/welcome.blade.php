@@ -78,27 +78,31 @@
             @endif
 
             <div class="content">
+                {{-- 
                 <div class="title m-b-md">
                    Cello Resources
                 </div>
                 <h3>Some test videos - click on an mp4 file</h3>
                 <div class="links">
-                @foreach($keyArray as $key) 
-                     <a href="{{ $key }}">{{ $key }}</a>
-                @endforeach
+                    @foreach($keyArray as $key) 
+                         <a href="video/{{ $key }}">{{ $key }}</a>
+                    @endforeach
+                </div>
+                --}}
+
+                <div class="title m-b-md">
+                   Laravel
                 </div>
                 
-             
-                {{-- 
                 <div class="links">
-                    <a href="{{ url('/gMajor.mp4') }}">G Major - Two Octaves</a>
+                    <a href="{{ url('video/gMajor.mp4') }}">G Major - Two Octaves</a>
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
-                --}}
+                
             </div>
         </div>
     </body>
