@@ -25,14 +25,16 @@ Route::get('/', function () {
 
 
 Auth::routes();
+/* Overrides POST logout that comes by default in Laravel */
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
-Route::get('video', 'IndexController@getIndex')->name('video');
-
-//Route::get('/video_test', 'IndexController@getIndex')->name('index');
-
-Route::get('video/{key}', 'VideoController@getVideo');
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('video', 'IndexController@getIndex')->name('videoList')->middleware('auth');
+
+Route::get('video/{key}', 'VideoController@getVideo')->name('videoInd')->middleware('auth');
+
+
 
 /* Login status tester below */
 Route::get('/show-login-status', function() {
