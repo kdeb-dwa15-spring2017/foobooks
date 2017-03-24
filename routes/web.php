@@ -50,6 +50,23 @@ Route::get('/show-login-status', function() {
     return;
 });
 
+Route::get('/combinations', function() {
+	$a = [0,1,2,3,4,5,6,7,8,9];
+
+	foreach($a as $first_term) {
+		//echo($first_term."<br />");
+		foreach($a as $second_term) {
+			//echo($first_term.$second_term."<br />");
+			foreach($a as $third_term) {
+				//echo($first_term.$second_term.$third_term."<br />");
+				foreach($a as $fourth_term){
+					echo($first_term.$second_term.$third_term.$fourth_term."<br />");
+				}//end of fourth foreach
+			}//end of third foreach
+		}//end of second foreach
+	}//end of first foreach
+});
+
 
 /* DB Tester below */
 

@@ -47,14 +47,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        //foreach compare email with approved email addresses
-        //return validator if entered email matches one on the list
-        //otherwise return a redirect
         
         //http://stackoverflow.com/questions/31204093/laravel-registration-register-only-users-that-own-an-email-from-a-specific-doma
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users|regex:/aaa@aaa.com/i',
+            'email' => 'required|email|max:255|unique:users',
+            //'email' => 'required|email|max:255|unique:users|regex:/aaa@aaa.com/i',
             'password' => 'required|min:6|confirmed',
         ]);
     

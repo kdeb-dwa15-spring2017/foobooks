@@ -23,15 +23,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //return view('home');
+        //dump( $request->user());
+        $user = $request->user();
+        $id = ($user['attributes']['id']);
+        //dump( $request->user['attributes']['id']);
         $bl= new BucketList();
         $keyArray = $bl->makeList();
         //echo gettype($bl);
         //echo gettype($keyArray);
         //dump($bl);
         //dump($keyArray);
-        return view('home')->with('keyArray', $keyArray);
+        return view('home')->with('keyArray', $keyArray)->with('id', $id);
+        //return view($id);
     }
+    /*
+    private function getId(Request $request)
+    {
+        
+    }*/
+    
 }
+

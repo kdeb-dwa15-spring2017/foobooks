@@ -14,7 +14,10 @@
                         Cello Resources
                     </div>
                     <h3>Some test videos - click on an mp4 file</h3>
+
+                    
                     <div class="links">
+                        {{ $id }} <br /><br />
                         @foreach($keyArray as $key) 
                             <a href="video/{{ $key }}">{{ $key }}</a><br />
                         @endforeach
