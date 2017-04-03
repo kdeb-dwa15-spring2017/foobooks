@@ -106,3 +106,17 @@ Route::get('/debug', function() {
 
 });
 */
+
+//Drop & Rebuild Database in Local
+if(App::environment('local')) {
+
+    Route::get('/drop', function() {
+
+        DB::statement('DROP database cello_resources');
+        //DB::statement('CREATE database cello_resources');
+
+        return 'Dropped & created cello_resources';
+    });
+
+};
+
