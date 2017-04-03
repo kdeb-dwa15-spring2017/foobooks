@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
-use App\Library\Video;
+use App\Library\VideoGetter;
 
 
 class VideoController extends Controller
@@ -24,7 +24,7 @@ class VideoController extends Controller
 
     public function getVideo($key) {
     	$this->key = $key;
-    	$video = new Video($key);
+    	$video = new VideoGetter($key);
     	return $video;
     }
 }

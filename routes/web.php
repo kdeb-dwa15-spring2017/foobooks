@@ -2,7 +2,7 @@
 
 //require 'vendor/autoload.php';
 //use App;
-use App\Library\Video;
+use App\Library\VideoGetter;
 use App\Library\BucketList;
 //require('../app/Video.php');
 
@@ -108,15 +108,16 @@ Route::get('/debug', function() {
 */
 
 //Drop & Rebuild Database in Local
+/*
 if(App::environment('local')) {
 
     Route::get('/drop', function() {
 
         DB::statement('DROP database cello_resources');
-        //DB::statement('CREATE database cello_resources');
+        DB::statement('CREATE database cello_resources');
 
         return 'Dropped & created cello_resources';
     });
 
-};
+}; */
 
