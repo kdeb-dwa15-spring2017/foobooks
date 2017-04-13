@@ -4,6 +4,7 @@
 //use App;
 use App\Library\VideoGetter;
 use App\Library\BucketList;
+use App\Lesson;
 //require('../app/Video.php');
 
 
@@ -22,6 +23,68 @@ Route::get('/', function () {
 
 	return view('welcome');
 });
+
+
+
+Route::get('/one-lesson', function () {
+	//$user = User::where('id', '=', '1');
+
+	$lesson = Lesson::where('id', '=', '2')->first();
+
+	dump($lesson->notes);
+
+	foreach($lesson->videos as $video) {
+	    dump($video->video_name);
+	}
+
+});
+
+Route::get('many-lessons-with-videos', function() {
+	$lessons = Lesson::with('videos')->get();
+
+	foreach($lessons as $lesson) {
+	    dump($lesson->notes.' <br><br> see the following videos: ');
+	    foreach($lesson->videos as $video) {
+	        dump($video->video_name);
+	        $videoOutput = new VideoGetter($video->video_name);
+    		return $videoOutput;
+    		 
+	    }
+}
+});
+
+/*
+Route::get('/one-lesson', function () {
+	//$user = User::where('id', '=', '1');
+
+	$lesson = Lesson::where('id', '=', '2')->first();
+
+	dump($lesson->notes);
+
+	foreach($lesson->videos as $video) {
+	    dump($video->video_name);
+	}
+
+}); */
+
+/*
+Route::get('many-lessons-with-videos', function() {
+	$lessons = Lesson::with('videos')->get();
+
+	foreach($lessons as $lesson) {
+	    dump($lesson->notes.' <br><br> see the following videos: ');
+	    foreach($lesson->videos as $video) {
+	        dump($video->video_name);
+	        $videoOutput = new VideoGetter($video->video_name);
+    		return $videoOutput;
+    		 
+	    }
+}
+}); */
+Route::get('/one-lesson','LessonController@returnLesson')->name('one-lesson');
+Route::get('/many-lessons-with-videos','LessonController@returnAllLessons')->name('all-lessons');
+
+
 
 
 Auth::routes();
@@ -68,6 +131,8 @@ Route::get('/combinations', function() {
 });
 
 
+
+
 /* DB Tester below */
 
 /*
@@ -108,7 +173,7 @@ Route::get('/debug', function() {
 */
 
 //Drop & Rebuild Database in Local
-/*
+
 if(App::environment('local')) {
 
     Route::get('/drop', function() {
@@ -119,5 +184,5 @@ if(App::environment('local')) {
         return 'Dropped & created cello_resources';
     });
 
-}; */
+}; 
 
