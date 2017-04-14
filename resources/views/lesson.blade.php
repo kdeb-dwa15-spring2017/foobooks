@@ -13,9 +13,11 @@
                     <div class="title m-b-md">
                         Cello Resources
                     </div>
-                    <h3>Some test videos - click on an mp4 file</h3>
+                    <h2>{{ $lessonData["student_name"] }}, Lesson # {{ $lessonData["lessonNumber"] }}, {{ $lessonData["semester"] }}</h2>
+                    <h3>{{ $lessonData["day"] }}, {{ $lessonData["date"] }}, {{ $lessonData["start_time"] }} </h3>
                     <div class="links">
-                        @if($lessonData["id"])
+                            {{-- 
+                            {{ $lessonData["student_name"] }}<br />
                             {{ $lessonData["id"] }}<br />
                             {{ $lessonData["semester"] }}<br />
                             {{ $lessonData["lessonNumber"] }}<br />
@@ -24,8 +26,11 @@
                             {{ $lessonData["start_time"] }}<br/>
                             {{ $lessonData["end_time"] }}<br/>
                             {{ $lessonData["duration"] }}<br/>
-                            {{ $lessonData["notes"] }}<br/>
                             {{ $lessonData["user_id"] }}<br/>
+                            --}}
+                            <h4>Lesson Notes:</h4>
+                            <p>{{ $lessonData["notes"] }}</p>
+                            
                             
                              @foreach($lessonData["video_array"] as $video) 
                                  <a href="video/{{ $video }}">{{ $video }}</a><br />
@@ -36,7 +41,6 @@
                                     Your browser does not support the video tag.
                                 </video><br />
                               @endforeach  
-                        @endif
                     </div>
 
                     {{-- 

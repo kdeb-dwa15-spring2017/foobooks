@@ -91,7 +91,9 @@ Auth::routes();
 /* Overrides POST logout that comes by default in Laravel */
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@indexLessons');
+
 
 Route::get('video', 'IndexController@getIndex')->name('videoList')->middleware('auth');
 

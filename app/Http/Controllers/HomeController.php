@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 use App\Library\BucketList;
+use Auth;
+use App\Lesson;
 
 class HomeController extends Controller
 {
@@ -38,11 +40,32 @@ class HomeController extends Controller
         return view('home')->with('keyArray', $keyArray)->with('id', $id);
         //return view($id);
     }
-    /*
-    private function getId(Request $request)
+    
+
+    public function indexLessons()
     {
-        
-    }*/
+
+        if (Auth::user()) {
+            $user = Auth::user();
+
+            $lessons = Lesson::where('user_id', $user->id)
+                    ->with('videos') ->get();
+            
+            foreach($lessons as $lesson) {
+                dump($lesson->id.' '.$lesson->notes);
+                foreach($lesson->videos as $video) {
+                    dump($video->video_name);
+                    //return redirect('video/{'$video->video_name'}');
+                    //$videoOutput = new VideoGetter($video->video_name);
+                    //return $videoOutput; 
+                }
+             }
+            return view('home')->with('lessons', $lessons)->with('user', $user);
+        }
+        else {
+            echo("not logged in");
+        }
+    }
     
 }
 
