@@ -17,8 +17,8 @@ class LessonVideoTableSeeder extends Seeder
 	    # The *key* will be the book title, and the *value* will be an array of tags.
 	    $lessons =[
 	        '9' => ['fingerMotionBowIntro.mp4','gMajor.mp4'],
-	        '8' => ['gMajor.mp4'],
-	        '10' => ['fingerMotionBowIntro.mp4']
+	        '8' => ['fingerMotionBowIntro.mp4'],
+	        '10' => ['gMajor.mp4']
 	    ];
 
 	    # Now loop through the above array, creating a new pivot for each book to tag

@@ -38,6 +38,15 @@ class UsersTableSeeder extends Seeder
 	        'password' => Hash::make('blah'),
 	        'remember_token' => null, 
     	]);
+
+    	DB::table('users')->insert([
+	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+	        'name' => 'Admin',
+	        'email' => 'kdebethunecello@gmail.com',
+	        'password' => Hash::make('cello'),
+	        'remember_token' => null, 
+    	]);
     }
 }
 

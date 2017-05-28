@@ -94,10 +94,21 @@ Route::get('/logout','Auth\LoginController@logout')->name('logout');
 //Route::get('/home', 'HomeController@index');
 Route::get('/home', 'HomeController@indexLessons');
 
+Route::get('/lesson/{id}', 'LessonController@returnLesson')->name('individual-lesson')->middleware('auth');
+
 
 Route::get('video', 'IndexController@getIndex')->name('videoList')->middleware('auth');
 
 Route::get('video/{key}', 'VideoController@getVideo')->name('videoInd')->middleware('auth');
+
+/*Start fleshing out routes for input forms */
+/* new student (i.e. user ) */
+Route::get('admin/student/new', 'AdminController@newStudent')->name('newStudent')->middleware('auth');
+Route::post('admin/student/new', 'AdminController@postNewStudent')->name('postNewStudent')->middleware('auth');
+
+
+/* new lesson */
+Route::get('admin/lesson/new', 'AdminController@newLesson')->name('newLesson')->middleware('auth');
 
 
 
@@ -130,6 +141,20 @@ Route::get('/combinations', function() {
 			}//end of third foreach
 		}//end of second foreach
 	}//end of first foreach
+});
+
+Route::get('collection-tester', function() {
+	$lessons = Lesson::all();
+	dump($lessons);
+	//$lessonArray[] = $lessons; //creates an array with a collection as the first element
+	
+	
+	//$lessonArray = array($lessons); //same as first choice
+	
+	$lessonArray = $lessons->toArray(); //correct
+	dump($lessonArray);
+
+
 });
 
 

@@ -25,7 +25,7 @@ class CreateLessonsTable extends Migration
             $table->string('semester');
             $table->integer('lesson_number');
             $table->string('day');
-            $table->date('date');
+            $table->datetime('date');
             $table->time('start_time');
             $table->time('end_time');
             $table->time('duration');

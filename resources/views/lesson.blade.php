@@ -3,18 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+       <!--  <div class="col-md-8 col-md-offset-2"> -->
+        <div class="col-md-8">
+             <a href="/home">back to lesson index</a>
             <div class="panel panel-default">
-                <div class="panel-heading">Lesson</div>
+
+                <div class="panel-heading"><h2>{{ $lessonData["student_name"] }} - {{ $lessonData["semester"] }}</h2></div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    
 
                     <div class="title m-b-md">
-                        Cello Resources
+                        <h3>Lesson {{ $lessonData["lessonNumber"] }} - {{ date('l, M d, Y g:i a', strtotime($lessonData["date"])) }}  </h3>
+                        <h3></h3>
                     </div>
-                    <h2>{{ $lessonData["student_name"] }}, Lesson # {{ $lessonData["lessonNumber"] }}, {{ $lessonData["semester"] }}</h2>
-                    <h3>{{ $lessonData["day"] }}, {{ $lessonData["date"] }}, {{ $lessonData["start_time"] }} </h3>
+                    
+            
+
+                    {{-- http://stackoverflow.com/questions/40038521/change-the-date-format-in-laravel-view-page/40038541 --}}
                     <div class="links">
                             {{-- 
                             {{ $lessonData["student_name"] }}<br />
@@ -28,49 +34,26 @@
                             {{ $lessonData["duration"] }}<br/>
                             {{ $lessonData["user_id"] }}<br/>
                             --}}
-                            <h4>Lesson Notes:</h4>
-                            <p>{{ $lessonData["notes"] }}</p>
-                            
-                            
+
+                            {{-- LESSON NOTES --}}
+                              <h4>Lesson Notes:</h4>
+                                <p>{!! $lessonData["notes"] !!}</p> 
+                            {{-- VIDEOS --}}
+                            {{-- video_name --}}
+                            @if($lessonData["video_array"])
+                                <h4>Lesson Videos:</h4>
+                            @endif
                              @foreach($lessonData["video_array"] as $video) 
-                                 <a href="video/{{ $video }}">{{ $video }}</a><br />
+                                 <a href="/video/{{ $video }}">{{ $video }}</a><br />
                                 <!-- https://www.w3schools.com/html/html5_video.asp -->
                                 <video width="320" height="180" controls>
-                                    <source src="video/{{ $video }}" type="video/mp4">
+                                    <source src="/video/{{ $video }}" type="video/mp4">
                                     <!-- <source src="movie.ogg" type="video/ogg"> -->
                                     Your browser does not support the video tag.
                                 </video><br />
-                              @endforeach  
+                              @endforeach 
+                             
                     </div>
-
-                    {{-- 
-
-                        https://laravel.io/forum/04-28-2014-trying-to-get-property-of-non-object-no-idea-where-this-is-coming-from-help
-                        This sounds like your object does not exist OR that it is an array...
-
-                        This adding an "@" infront of the: $yourVar->value; to: @$yourVar->value;
-
-                        OR
-
-                        try this:
-
-                        Change this: {{ $yourVar->value }} To: {{ $yourVar['value'] }}
-
-                        Hard to tell without seeing any code...
-
-                    --}}
-
-
-
-
-                    {{-- 
-                    <div class="links">
-                        {{ $id }} <br /><br />
-                        @foreach($keyArray as $key) 
-                            <a href="video/{{ $key }}">{{ $key }}</a><br />
-                        @endforeach
-                    </div>
-                    --}}
                 </div>
             </div>
         </div>

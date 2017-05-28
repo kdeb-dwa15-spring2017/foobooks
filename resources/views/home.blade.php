@@ -5,19 +5,22 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading"><h2>{{ $user->name }}'s Lessons</h2></div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    
 
                     <div class="title m-b-md">
-                        Cello Resources
+                        
                     </div>
-                    <h3>Some test videos - click on an mp4 file</h3>
+                    
                     <div class="links">
-                        {{ $user->id }} <br /><br />
+                        
                         @foreach($lessons as $lesson) 
-                            {{ $lesson }}</a><br />
+
+                            {{-- <a href="lesson/{{ $lesson->id }}">{{ $lesson->id }}</a><br /> --}}
+                            <a href="lesson/{{ $lesson->id }}"><h4>Lesson {{ $lesson->lesson_number }}, {{ $lesson->semester }} - {{ date('l, M d, Y g:i a', strtotime($lesson->date)) }}</h4></a>
+                            {{-- $lesson --}}
                         @endforeach
                     </div>
                     {{-- 

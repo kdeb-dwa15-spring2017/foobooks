@@ -6,14 +6,20 @@ use Illuminate\Http\Request;
 use App\Library\VideoGetter;
 use App\Lesson;
 use Auth;
+use App\User;
 
 class LessonController extends Controller
 {
     //Return one lesson
-    public function returnLesson() {
-    	if (Auth::id()) {
-	    	$lesson = Lesson::where('user_id', '=', '1')->first();
+    public function returnLesson($id) {
+    	$this->id = $id; 
+    	$lesson = Lesson::where('id', '=', $id)->first();
+    	
+    	if (Auth::id() == $lesson->user_id) {
+	    	
+	   		echo "this is auth id";
 	   		dump(Auth::id());
+	   		
 	    	$student = $lesson->user;
 	    	dump($student['name']);
 	    	$lessonData = [];
@@ -61,8 +67,13 @@ class LessonController extends Controller
 
 			return view('lesson')->with('lessonData', $lessonData);
 		}
+		/* put admin redirect here
+		else if (Auth::name() == 'Admin') {
+			echo("return the admin dashboard here");
+		}
+		*/
 		else {
-			return view('welcome');
+			return redirect()->action('HomeController@indexLessons');
 		}
     }
 

@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>Cello Resources</title>
+    <title>de Bethune Studio - Student Pages</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -38,7 +38,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{-- config('app.name', 'Laravel') --}}
-                        Cello Resources
+                        de Bethune Studio - Student Pages
                     </a>
                 </div>
 
@@ -57,8 +57,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                                    {{ Auth::user()->name }} <span class="caret"></span></a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>

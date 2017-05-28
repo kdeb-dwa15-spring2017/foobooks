@@ -27,7 +27,7 @@ class LessonsTableSeeder extends Seeder
 	    ]);
 	    */
 
-	    $user_id = User::where('name','=','student1')->pluck('id')->first();
+	    //$user_id = User::where('name','=','student1')->pluck('id')->first();
 
 	    DB::table('lessons')->insert([
 	    	'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -37,14 +37,14 @@ class LessonsTableSeeder extends Seeder
 	    	'semester' => 'Spring 2017',
 	    	'lesson_number' => 10,
 	    	'day' => 'Tuesday',
-	    	'date' => '2017-03-28',
+	    	'date' => '2017-03-28 16:15:00',
 	    	'start_time' => '16:15:00',
 	    	'end_time' => '17:00:00',
 	    	'duration' => 45,
-	    	'notes' => 'Scelerisque nunc nisi donec etiam purus et ligula aenean netus',
+	    	'notes' => '<ul><b>Witches\' Dance</b> <li>G Major - two octaves</li><li>G major - two octaves with WD bowing</li></ul>',
 	    ]);
 
-	    $user_id = User::where('name','=','student2')->pluck('id')->first();
+	    //$user_id = User::where('name','=','student2')->pluck('id')->first();
 
 	    DB::table('lessons')->insert([
 	    	'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -54,14 +54,14 @@ class LessonsTableSeeder extends Seeder
 	    	'semester' => 'Spring 2017',
 	    	'lesson_number' => 9,
 	    	'day' => 'Tuesday',
-	    	'date' => '2017-03-21',
+	    	'date' => '2017-03-21 16:15:00',
 	    	'start_time' => '16:15:00',
 	    	'end_time' => '17:00:00',
 	    	'duration' => 45,
 	    	'notes' => 'Scales - review: G major in 2 Octaves, G major with Hunter\'s bowing',
 	    ]);
 
-	    $user_id = User::where('name','=','student1')->pluck('id')->first();
+	    //$user_id = User::where('name','=','student1')->pluck('id')->first();
 
 	    DB::table('lessons')->insert([
 	    	'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -71,11 +71,26 @@ class LessonsTableSeeder extends Seeder
 	    	'semester' => 'Spring 2017',
 	    	'lesson_number' => 8,
 	    	'day' => 'Tuesday',
-	    	'date' => '2017-03-28',
+	    	'date' => '2017-03-28 16:15:00',
 	    	'start_time' => '16:15:00',
 	    	'end_time' => '17:00:00',
 	    	'duration' => 45,
 	    	'notes' => 'pieces: Minuet #1, Hunter\'s Chorus',
+	    ]);
+
+	    DB::table('lessons')->insert([
+	    	'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+	    	'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+	    	//'user_id' => $user_id,
+	    	'user_id' => 1,
+	    	'semester' => 'Spring 2017',
+	    	'lesson_number' => 7,
+	    	'day' => 'Tuesday',
+	    	'date' => '2017-03-28 16:15:00',
+	    	'start_time' => '16:15:00',
+	    	'end_time' => '17:00:00',
+	    	'duration' => 45,
+	    	'notes' => 'Scelerisque nunc nisi donec etiam purus et ligula aenean netus',
 	    ]);
 
 	    /*
